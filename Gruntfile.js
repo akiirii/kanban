@@ -4,11 +4,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
+    var server = require('./backend/app')
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             dev: {
-                src: ['fronend/js/**'],
+                src: ['frontend/js/**'],
                 dest: 'tmp/js/app.concat.js'
             }
 
@@ -16,7 +18,7 @@ module.exports = function(grunt) {
         less: {
             dev: {
                 files: {
-                    'tmp/css/main.css': 'fronend/less/main.less'
+                    'tmp/css/main.css': 'frontend/less/main.less'
                 }
             }
         },
@@ -25,17 +27,23 @@ module.exports = function(grunt) {
                 atBegin: true
             },
             js: {
-                files: ['fronend/js/**'],
+                files: ['frontend/js/**'],
                 tasks: ['concat:dev']
 
             },
             less: {
-                files: ['fronend/less/**'],
+                files: ['frontend/less/**'],
                 tasks: ['less:dev']
 
             }
         }
     })
 
-    grunt.registerTask('run', ['watch'])
+    grunt.registerTask('server', function() {
+        server.listen(8888, function() {
+            console.log('server init aaaaa')
+        });
+    })
+
+    grunt.registerTask('run', ['server', 'watch'])
 }
