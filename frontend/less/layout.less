@@ -1,0 +1,33 @@
+body {
+    font-family: Verdana, "Verdana Ref", sans-serif;
+    font-size: @page-font-size;
+    color: @dark-color;
+    background-color: @light-color;
+}
+
+header {
+    background-color: @very-light-color;
+    height: @header-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 2px 2px @main-color;
+
+    > div {
+        margin: 0 auto;
+        width: @page-width;
+    }
+
+    h1 {
+        color: @main-color;
+
+    }
+}
+
+main {
+    margin: 0 auto;
+    width: @page-width;
+    padding-top: @header-height;
+
+}

@@ -1,19 +1,28 @@
 <!doctype html>
-<html lang="en" ng-app="piAdvert">
+<html lang="en" ng-app="kanban">
 <head>
     <meta charset="utf-8">
+    <script src="/static/angular/angular.js"></script>
+    <script src="/static/angular-route/angular-route.js"></script>
+
+    <script src="/js/app.concat.js"></script>
+
+    <link rel="stylesheet" href="/css/main.css">
 
 </head>
 
 
 <header>
+    <div>
+        <h1> Kanban board</h1>
+    </div>
 
 </header>
 
 <body>
 
-HELO WORLD
-
+<main ng-view>
+</main>
 </body>
 
 
