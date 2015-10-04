@@ -15,6 +15,9 @@ kanban.config(['$routeProvider',
         when('/board/:id', {
             templateUrl: '/html/board.html',
             controller: 'boardController'
-        })
+        }).
+        otherwise({
+            redirectTo: '/'
+        });
     }
 ])

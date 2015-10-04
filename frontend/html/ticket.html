@@ -1,8 +1,8 @@
 <div class="ticket">
-    <div class="header" ng-class="{'primary-box': true}">
-        test issue
+    <div class="header" ng-class="ticket.status">
+        {{ticket.name}}
     </div>
     <div class="content">
-        test
+        {{ticket.description}}
     </div>
 <div>

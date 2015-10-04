@@ -1,11 +1,15 @@
 angular
     .module('board.ticket', [])
-    .directive('ticket', function() {
+    .directive('boardTicket', function() {
         return {
             restrict: 'A',
+            scope: {
+                ticket: '=ticket'
+            },
             templateUrl: '/html/ticket.html',
             controller: ['$scope', function($scope) {
 
+                console.log('AAAAAA : ', $scope.ticket)
 
 
             }]

@@ -9,7 +9,10 @@
                 Requested
             </div>
             <div class="content">
-                <div ticket></div>
+                <div ng-repeat="ticket in board.tickets | filter:{'status':'requested'}">
+                    <div board-ticket ticket="ticket"></div>
+                </div>
+
             </div>
 
         </div>
@@ -18,7 +21,9 @@
                 In Progress
             </div>
             <div class="content">
-                <div ticket></div>
+                <div ng-repeat="ticket in board.tickets | filter:{'status':'inprogress'}">
+                    <div board-ticket ticket="ticket"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -28,7 +33,9 @@
                 Testing
             </div>
             <div class="content">
-                <div ticket></div>
+                <div ng-repeat="ticket in board.tickets | filter:{'status':'testing'}">
+                    <div board-ticket ticket="ticket"></div>
+                </div>
             </div>
 
         </div>
@@ -37,7 +44,9 @@
                 Done
             </div>
             <div class="content">
-                <div ticket></div>
+                <div ng-repeat="ticket in board.tickets | filter:{'status':'done'}">
+                    <div board-ticket ticket="ticket"></div>
+                </div>
             </div>
         </div>
     </div>
