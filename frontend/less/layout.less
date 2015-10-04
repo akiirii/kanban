@@ -10,6 +10,12 @@ body {
 h1 {
     font-weight: bold;
     margin: 0 @big-spacing;
+    font-size: @page-very-big-font-size;
+}
+
+h2 {
+    font-weight: bold;
+    margin: 0 @big-spacing;
     font-size: @page-big-font-size;
 }
 
@@ -58,7 +64,7 @@ header {
 }
 
 main {
-    margin: 0 auto;
+    margin: @big-spacing auto;
     padding-top: @header-height;
     width: 100%;
 
@@ -109,6 +115,10 @@ button {
 
 
 
+}
+
+.bold {
+    font-weight: bold;
 }
 
 .header {

@@ -45,8 +45,10 @@ angular
             id: board.id
         }
         angular.forEach(board.tickets, function(ticket, key) {
-            if (!$scope.board[ticket.status])
+            if (!$scope.board[ticket.status]) {
                 $scope.board[ticket.status] = [];
+            }
+
             $scope.board[ticket.status].push(ticket)
         }, true);
 

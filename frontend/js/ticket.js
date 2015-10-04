@@ -8,14 +8,14 @@ angular
             },
             templateUrl: '/html/ticket.html',
             controller: ['$scope', function($scope) {
-                $scope.ticket.$editing = ''
+                $scope.ticket.$editing = null;
 
                 $scope.editContent = function(element) {
 
                     $scope.ticket.$editing = element;
                 };
                 $scope.save = function() {
-                    $scope.ticket.$editing = '';
+                    $scope.ticket.$editing = null;
 
                 };
 
