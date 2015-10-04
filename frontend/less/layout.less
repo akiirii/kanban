@@ -3,6 +3,7 @@ body {
     font-size: @page-normal-font-size;
     color: @dark-color;
     background-color: @light-color;
+    text-shadow: 0 0 2px @main-color;
     min-width: 320px;
 }
 
@@ -12,6 +13,17 @@ h1 {
     font-size: @page-big-font-size;
 }
 
+a {
+    color: @primary-color;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+
+
 header {
     background-color: @very-light-color;
     height: @header-height;
@@ -20,11 +32,26 @@ header {
     left: 0;
     right: 0;
     box-shadow: 0 2px 2px @main-color;
+    display: flex;
 
+    >div {
+        display: flex;
+    }
     h1 {
         color: @main-color;
         line-height: @header-height;
+        flex: auto;
+    }
 
+    a {
+        line-height: @header-height;
+        padding: 0 @big-spacing;
+    }
+
+    .user {
+        line-height: @header-height;
+        padding: 0 @big-spacing;
+        font-weight: bold;
     }
 }
 
@@ -37,13 +64,12 @@ main {
 
 .header {
     text-align: center;
-
     padding: @medium-spacing;
     box-shadow: 0 0 3px @main-color;
-    background-color: @very-light-color
+    background-color: @very-light-color;
+    border-bottom: 1px solid @main-color;
 }
 .content{
-    background-color: @very-light-color;
     min-height: 50px;
     padding: @small-spacing;
 }
