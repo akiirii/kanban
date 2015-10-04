@@ -2,3 +2,50 @@
 @light-color: #f8f8f8;
 @main-color:  #e5e5e5;
 @very-light-color: #ffffff;
+
+@primary-color: #007ab5;
+@primary-hover-color: #008bcf;
+@secondary-color: #00ab7c;
+@progress-color: #ffa017;
+@alert-color: #ef2344;
+@alert-hover-color: #f93555;
+
+
+.primary {
+    color: @primary-color;
+    text-shadow: 0 0 2px @main-color;
+}
+.secondary {
+    color: @secondary-color;
+    text-shadow: 0 0 2px @main-color;
+}
+.progress {
+    color: @progress-color;
+    text-shadow: 0 0 2px @main-color;
+}
+.alert {
+    color: @alert-color;
+    text-shadow: 0 0 2px @main-color;
+}
+
+.primary-box {
+    color: @very-light-color;
+    border-radius: 5px 5px 0 0;
+    background-color: @primary-color;
+
+}
+.secondary-box {
+    color: @very-light-color;
+    border-radius: 5px 5px 0 0;
+    background-color: @secondary-color;
+}
+.progress-box {
+    color: @very-light-color;
+    border-radius: 5px 5px 0 0;
+    background-color: @progress-color;
+}
+.alert-box {
+    color: @very-light-color;
+    border-radius: 5px 5px 0 0;
+    background-color: @alert-color;
+}

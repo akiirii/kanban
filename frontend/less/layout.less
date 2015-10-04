@@ -1,8 +1,15 @@
 body {
     font-family: Verdana, "Verdana Ref", sans-serif;
-    font-size: @page-font-size;
+    font-size: @page-normal-font-size;
     color: @dark-color;
     background-color: @light-color;
+    min-width: 320px;
+}
+
+h1 {
+    font-weight: bold;
+    margin: 0 @big-spacing;
+    font-size: @page-big-font-size;
 }
 
 header {
@@ -14,20 +21,28 @@ header {
     right: 0;
     box-shadow: 0 2px 2px @main-color;
 
-    > div {
-        margin: 0 auto;
-        width: @page-width;
-    }
-
     h1 {
         color: @main-color;
+        line-height: @header-height;
 
     }
 }
 
 main {
     margin: 0 auto;
-    width: @page-width;
     padding-top: @header-height;
+    width: 100%;
 
+}
+
+.header {
+    text-align: center;
+
+    padding: @medium-spacing;
+    box-shadow: 0 0 3px @main-color;
+    background-color: @very-light-color
+}
+.content{
+    background-color: @very-light-color;
+    min-height: 50px;
 }
