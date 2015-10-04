@@ -1,7 +1,9 @@
 var kanban = angular.module('kanban', [
     'ngRoute',
+    'dndLists',
     'main',
     'board',
+    'board.column',
     'board.ticket'
 ]);
 

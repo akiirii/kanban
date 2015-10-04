@@ -9,9 +9,6 @@ angular
             templateUrl: '/html/ticket.html',
             controller: ['$scope', function($scope) {
 
-                console.log('AAAAAA : ', $scope.ticket)
-
-
             }]
         }
     })

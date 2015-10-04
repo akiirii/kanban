@@ -2,7 +2,7 @@ angular
     .module('board', [])
     .controller('boardController', ['$scope', function($scope) {
 
-        $scope.board = {
+        board = {
             id: 123,
             name: 'sssss',
             tickets: [{
@@ -40,4 +40,17 @@ angular
                 status: 'testing'
             }]
         };
+        $scope.board = {
+            name: board.name,
+            id: board.id
+        }
+        angular.forEach(board.tickets, function(ticket, key) {
+            if (!$scope.board[ticket.status])
+                $scope.board[ticket.status] = [];
+            $scope.board[ticket.status].push(ticket)
+        }, true);
+
+        $scope.$watch('board', function(board) {
+            console.log('cange', board);
+        });
     }]);
