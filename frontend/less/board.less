@@ -1,22 +1,57 @@
 .board {
     display: flex;
+    flex-flow: row wrap;
 
-    box-shadow: 0 0 2px @main-color;
+    >div {
+        flex: 1;
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .boardMenu {
+        flex: 1 100%;
+        display: flex;
+        margin: @big-spacing @medium-spacing 0 @medium-spacing;
+        justify-content: flex-end;
+
+        button {
+            display: block;
+            color: @very-light-color;
+            border-radius: 5px;
+            padding: @small-spacing;
+            background-color: @alert-color;
+            border: none;
+            font-weight: bold;
+
+            &:hover {
+                background-color: @alert-hover-color;
+            }
+        }
+    }
 
     .boardColumn {
         flex: 1;
-        text-align: center;
         font-weight: bold;
-        border: 1px solid @main-color;
+        margin: @medium-spacing;
+        box-shadow: 0 0 3px @main-color;
+        background-color: @very-light-color;
 
-        .header {
-            background-color: @very-light-color;
-            padding: @small-spacing;
-            border-bottom: 1px solid @main-color;
+    }
+}
+
+@media (max-width: 768px){
+    .board {
+        >div {
+            flex-direction: column;
         }
-        .content{
-            background-color: @very-light-color;
-            min-height: 100px;
+        .boardMenu {
+            flex-flow: row wrap;
         }
+    }
+}
+
+@media (max-width: 359px){
+    .board {
+        flex-direction: column;
     }
 }
