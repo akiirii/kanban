@@ -1,8 +1,17 @@
 <div class="ticket">
     <div class="header" ng-class="ticket.status">
-        {{ticket.name}}
+        <span ng-if="ticket.$editing !== 'title'" ng-dblclick="editContent('title')"> {{ticket.name}}</span>
+        <input type="text" ng-if="ticket.$editing === 'title'"  ng-model="ticket.name" ng-keypress="($event.keyCode !== 13)|| save()"/>
+        <button ng-if="ticket.$editing === 'title'" ng-click=save()>save</button>
+
     </div>
-    <div class="content">
-        {{ticket.description}}
+    <div class="content" >
+        <div  ng-if="ticket.$editing !== 'content'"  ng-dblclick="editContent('content')">
+            <pre>{{ticket.description}}</pre>
+        </div>
+
+        <textarea ng-if="ticket.$editing === 'content'"  ng-model="ticket.description" ></textarea>
+        <button ng-class="ticket.status" ng-if="ticket.$editing === 'content'" ng-click=save()>save</button>
     </div>
+
 <div>

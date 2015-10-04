@@ -64,6 +64,53 @@ main {
 
 }
 
+button {
+    display: block;
+    color: @very-light-color;
+    border-radius: 5px;
+    padding: @small-spacing;
+    border: none;
+    font-weight: bold;
+
+    &.requested {
+        background-color: @primary-color;
+
+    }
+    &.requested:hover {
+        background-color: @primary-hover-color;
+
+    }
+    &.done {
+        background-color: @secondary-color;
+
+    }
+
+    &.done:hover {
+        background-color: @secondary-hover-color;
+
+    }
+    &.inprogress {
+        background-color: @progress-color;
+
+    }
+    &.inprogress:hover {
+        background-color: @progress-hover-color;
+
+    }
+
+    &.basic {
+        background-color: @alert-color;
+
+    }
+    &.basic:hover {
+        background-color: @alert-hover-color;
+
+    }
+
+
+
+}
+
 .header {
     text-align: center;
     padding: @medium-spacing;

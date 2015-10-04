@@ -6,6 +6,7 @@
             <li ng-repeat="ticket in tickets"
                 dnd-draggable="ticket"
                 dnd-effect-allowed="move"
+                dnd-disable-if="ticket.$editing"
                 dnd-moved="removeElement(ticket,$index)">
                 <div board-ticket ticket="ticket"></div>
             </li>
