@@ -6,40 +6,34 @@
 @primary-color: #007ab5;
 @primary-hover-color: #008bcf;
 @secondary-color: #00ab7c;
+@secondary-hover-color: #28bf96;
 @progress-color: #ffa017;
+@progress-hover-color: #ffad37;
 @alert-color: #ef2344;
 @alert-hover-color: #f93555;
 
 
 .primary {
     color: @primary-color;
-    text-shadow: 0 0 2px @main-color;
 }
 .secondary {
     color: @secondary-color;
-    text-shadow: 0 0 2px @main-color;
 }
 .progress {
     color: @progress-color;
-    text-shadow: 0 0 2px @main-color;
 }
-.alert {
-    color: @alert-color;
-    text-shadow: 0 0 2px @main-color;
-}
-
-.primary-box {
+.primary-box, .requested {
     color: @very-light-color;
     border-radius: 5px 5px 0 0;
     background-color: @primary-color;
-
 }
-.secondary-box {
+
+.secondary-box, .done {
     color: @very-light-color;
     border-radius: 5px 5px 0 0;
     background-color: @secondary-color;
 }
-.progress-box {
+.progress-box, .inprogress, .testing {
     color: @very-light-color;
     border-radius: 5px 5px 0 0;
     background-color: @progress-color;

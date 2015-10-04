@@ -1,4 +1,60 @@
 .ticket {
     box-shadow: 0 0 2px @main-color;
     margin: @big-spacing @medium-spacing;
+
+
+    .header{
+        input {
+            box-shadow: inset 0 0 2px @main-color;
+            padding: 0 @small-spacing;
+            border: none;
+        }
+
+        button {
+            display: inline;
+            background-color: transparent;
+            border: 2px solid @very-light-color;
+
+            &:hover {
+                background-color: rgba(255,255,255,0.1);
+
+            }
+        }
+    }
+
+
+    .content {
+        border: 1px solid @main-color;
+        width: auto;
+
+        textarea {
+            box-shadow: none;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        button {
+            margin-left:auto;
+            margin-right:0;
+
+            &.requested:hover {
+                background-color: @primary-hover-color;
+
+            }
+            &.done:hover {
+                background-color: @secondary-hover-color;
+
+            }
+            &.inprogress:hover {
+                background-color: @progress-hover-color;
+
+            }
+
+
+        }
+
+
+
+    }
+
 }

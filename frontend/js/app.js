@@ -1,7 +1,9 @@
 var kanban = angular.module('kanban', [
     'ngRoute',
+    'dndLists',
     'main',
     'board',
+    'board.column',
     'board.ticket'
 ]);
 
@@ -15,6 +17,9 @@ kanban.config(['$routeProvider',
         when('/board/:id', {
             templateUrl: '/html/board.html',
             controller: 'boardController'
-        })
+        }).
+        otherwise({
+            redirectTo: '/'
+        });
     }
 ])

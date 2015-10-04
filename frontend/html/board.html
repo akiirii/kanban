@@ -1,44 +1,15 @@
 
 <div class="board">
     <div class="boardMenu">
-        <button> &#43 add ticket</button>
+        <button class="basic"> &#43 add ticket</button>
+    </div>
+
+    <div>
+        <div board-column name="Requested" header="primary" status="requested" tickets="board.requested"></div>
+        <div board-column name="In Progress" header="progress" status="inprogress" tickets="board.inprogress"></div>
     </div>
     <div>
-        <div class="boardColumn">
-            <div class="header primary">
-                Requested
-            </div>
-            <div class="content">
-                <div ticket></div>
-            </div>
-
-        </div>
-        <div class="boardColumn">
-            <div class="header progress">
-                In Progress
-            </div>
-            <div class="content">
-                <div ticket></div>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="boardColumn">
-            <div class="header progress">
-                Testing
-            </div>
-            <div class="content">
-                <div ticket></div>
-            </div>
-
-        </div>
-        <div class="boardColumn">
-            <div class="header secondary">
-                Done
-            </div>
-            <div class="content">
-                <div ticket></div>
-            </div>
-        </div>
+        <div board-column name="Testing" header="progress" status="testing" tickets="board.testing"></div>
+        <div board-column name="Done" header="secondary" status="done" tickets="board.done"></div>
     </div>
 </div>

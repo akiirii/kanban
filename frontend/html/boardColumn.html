@@ -1,0 +1,14 @@
+<div class="boardColumn" dnd-list="tickets" dnd-inserted="changeStatus(item, status)">
+    <div class="header" ng-class="header">
+        {{name}}
+    </div>
+    <ul class="content">
+            <li ng-repeat="ticket in tickets"
+                dnd-draggable="ticket"
+                dnd-effect-allowed="move"
+                dnd-disable-if="ticket.$editing"
+                dnd-moved="removeElement(ticket,$index)">
+                <div board-ticket ticket="ticket"></div>
+            </li>
+    </ul>
+</div>
