@@ -1,0 +1,45 @@
+.home {
+    text-align:  center;
+    margin: @big-spacing;
+
+    h1 {
+        font-size: 32px;
+    }
+
+
+    .boards {
+        padding: @big-spacing;
+
+            a {
+                margin: 0 @medium-spacing;
+                background-color: @very-light-color;
+                padding: @medium-spacing;
+                box-sizing: border-box;
+                box-shadow: 0 0 3px @main-color;
+                width: 200px;
+                height: 100px;
+                float: left;
+
+                div {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+
+
+                }
+                .name {
+                    font-size: 20px;
+                    height: 25px;
+                    padding: @medium-spacing;
+                }
+            }
+
+        button.big {
+            border-radius: 0;
+            width: 200px;
+            height: 100px;
+            font-size: 20px;
+        }
+
+    }
+}

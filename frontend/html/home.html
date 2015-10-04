@@ -1,4 +1,31 @@
+<div class="home">
+
+<h1> Kanban boards </h1>
+<div>  </div>
+
+
+
+<div class="boards">
+<ul>
+
+    <li  ng-repeat="board in boards">
+
+        <a ng-href="#/board/{{board.id}}" title="{{board.name}} {{board.description}}">
+            <div class="name"> {{board.name}} </div>
+            <div>Tickets: [{{board.count}}]</span></div>
+            <div   class="light">{{board.description}}</div>
+
+        </a>
+    </li>
+
+</ul>
+
+<button class="big basic"> &#43 add board</button>
+
+</div>
+
 <div>
 
-    <a href="#/board/test"> my board </a>
+</div>
+
 </div>

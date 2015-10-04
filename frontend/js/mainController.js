@@ -5,11 +5,13 @@ angular
         $scope.boards = [{
             id: 122,
             name: 'board1',
-            description: 'asasas'
+            description: 'asasas',
+            count: 12
         }, {
             id: 12121,
-            name: 'board2',
-            description: ''
+            name: 'board  sbbsd sadgshdgs sdasdadd',
+            description: '',
+            count: 1
         }]
 
     }]);
