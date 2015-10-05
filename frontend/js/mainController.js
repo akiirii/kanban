@@ -10,6 +10,7 @@ angular
         })
 
         $scope.addBoard = function() {
+            $scope.submited = false;
             $scope.board = {
                 name: '',
                 description: ''
@@ -17,16 +18,23 @@ angular
             $scope.createNewBoard = true;
         }
         $scope.close = function() {
-
+            $scope.submited = false;
             $scope.createNewBoard = false;
         }
 
-
         $scope.submit = function() {
-
-
-            console.log($scope.newboard);
-            //$scope.createNewBoard = false;
+            $scope.submited = true;
+            if ($scope.newboard.$valid) {
+                console.log('correct');
+                $scope.createNewBoard = false;
+                boardService.createBoard($scope.board).then(function(response) {
+                    console.log('aaaaa')
+                });
+            }
+        }
+        $scope.validate = function() {
+            return $scope.newboard.boardName.$invalid && (!$scope.newboard.boardName.$pristine ||
+                $scope.submited)
         }
 
     }]);

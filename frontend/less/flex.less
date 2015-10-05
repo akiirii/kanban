@@ -10,7 +10,13 @@
   flex-flow: @direction @wrap;
 }
 
-.flex(@grow, @grow2) {
+.flex(@grow) {
+  -webkit-flex: @grow;
+  -ms-flex: @grow;
+  flex: @grow;
+}
+
+.flex100(@grow, @grow2) {
   -webkit-flex: @grow, @grow2;
   -ms-flex: @grow,@grow2;
   flex: @grow,@grow2;

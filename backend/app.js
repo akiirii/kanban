@@ -20,7 +20,7 @@ app.get('/api/boards', function(req, res) {
     });
 });
 
-app.get('/api/board/:id', function(req, res) {
+app.get('/api/boards/:boarsdId', function(req, res) {
     res.send({
         id: 122,
         name: 'board1',
@@ -61,17 +61,20 @@ app.get('/api/board/:id', function(req, res) {
     });
 });
 
-app.post('/api/newBoard', function(req, res) {
+app.post('/api/boards', function(req, res) {
     res.send({
-
+        id: 1223
     });
 });
 
-app.post('/api/updateBoard', function(req, res) {
-    console.log('aaaaaaaaaaaaaaaaaaaaa')
+app.post('/api/boards/:boarsdId/tickets', function(req, res) {
     res.send({
-        sucess: true
+        id: 1223
     });
+});
+
+app.put('/api/boards/:boardId/tickets/:ticketId', function(req, res) {
+    res.sendStatus(200);
 });
 
 
