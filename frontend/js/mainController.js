@@ -1,17 +1,32 @@
 angular
     .module('main', [])
-    .controller('mainController', ['$scope', function($scope) {
+    .controller('mainController', ['$scope', 'boardService', function($scope, boardService) {
 
-        $scope.boards = [{
-            id: 122,
-            name: 'board1',
-            description: 'asasas',
-            count: 12
-        }, {
-            id: 12121,
-            name: 'board  sbbsd sadgshdgs sdasdadd',
-            description: '',
-            count: 1
-        }]
+        $scope.loading = true;
+
+        boardService.getBoards().then(function(response) {
+            $scope.boards = response;
+            $scope.loading = false;
+        })
+
+        $scope.addBoard = function() {
+            $scope.board = {
+                name: '',
+                description: ''
+            };
+            $scope.createNewBoard = true;
+        }
+        $scope.close = function() {
+
+            $scope.createNewBoard = false;
+        }
+
+
+        $scope.submit = function() {
+
+
+            console.log($scope.newboard);
+            //$scope.createNewBoard = false;
+        }
 
     }]);

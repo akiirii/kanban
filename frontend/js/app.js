@@ -4,7 +4,8 @@ var kanban = angular.module('kanban', [
     'main',
     'board',
     'board.column',
-    'board.ticket'
+    'board.ticket',
+    'board.service'
 ]);
 
 kanban.config(['$routeProvider',
