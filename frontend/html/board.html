@@ -19,22 +19,30 @@
     <img src="/img/loading.gif">
 </div>
 
-<div ng-if="newTicket", class="modalDialog">
+<div ng-show="createNewTicket", class="modalDialog">
     <div class="container">
         <div class="close" title="Close" ng-click="close()">X</div>
         <h2> New Ticket </h2>
-        <div class="group">
-            <label for="newTicketName">Name</label>
-            <input id="newTicketName" type="text" ng-model="ticket.name"/>
-        </div>
-        <div  class="group">
-            <label for="newTicketDescription">Description</label>
-            <textarea id="newTicketDescription" ng-model="ticket.description" ></textarea>
-        </div>
-        <div class="buttons">
-            <button ng-click=close()>cancel</button>
-            <button class="basic" ng-click=save()>save</button>
-        </div>
+        <form name="newticket" ng-submit="submit()" novalidate>
+            <fieldset>
+                <div class="group" ng-class="{ 'has-error': (validate('ticketName')) }">
+                    <label>*Name:</label>
+                    <input name="ticketName" type="text" ng-model="ticket.name" required>
+
+                    <div class="error" ng-if="validate('ticketName')">Ticket name is required</div>
+                </div>
+                <div  class="group" ng-class="{ 'has-error': validate('ticketDescription') }">
+                    <label>*Description:</label>
+                    <textarea name="ticketDescription" ng-model="ticket.description" required></textarea>
+
+                    <div class="error" ng-if="validate('ticketDescription')">Description is required</div>
+                </div>
+                <div class="buttons">
+                    <button ng-click=close()>cancel</button>
+                    <button type="submit" class="basic">save</button>
+                </div>
+            </fieldset>
+        </form>
 
     </div>
 <div>

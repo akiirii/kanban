@@ -25,6 +25,7 @@
         .group {
             padding: @small-spacing;
             .display-flex();
+            .flex-flow(row, wrap);
 
             input, textarea {
                 flex: 1;
@@ -42,6 +43,13 @@
                 border: 1 solid @alert-color;
             }
             label {
+                color: @alert-color;
+            }
+
+            .error {
+                .flex100(1, 100%);
+                padding-left: 100px;
+                align-self: flex-end;
                 color: @alert-color;
             }
 

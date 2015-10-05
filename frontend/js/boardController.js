@@ -4,6 +4,7 @@ angular
         boardService) {
         $scope.updateBoard = false;
         $scope.loading = true;
+        $scope.createNewicket = false;
 
         boardService.getBoard($routeParams.id).then(function(response) {
             $scope.board = {
@@ -33,10 +34,32 @@ angular
 
         }, true);
 
+
+        $scope.validate = function(fieldName) {
+            return $scope.newticket[fieldName].$invalid && ($scope.newticket[fieldName].$dirty ||
+                $scope.submited)
+        }
+
         $scope.addTicket = function() {
-            $scope.newTicket = true;
+            $scope.submited = false;
+            $scope.ticket = {
+                name: '',
+                description: '',
+                stetus: 'requested'
+            };
+            $scope.createNewTicket = true;
+
         }
         $scope.close = function() {
-            $scope.newTicket = false;
+            $scope.submited = false;
+
+            $scope.createNewTicket = false;
+        }
+        $scope.submit = function() {
+            $scope.submited = true;
+            if ($scope.newticket.$valid) {
+                $scope.board.tickets.push($scope.ticket);
+                $scope.createNewTicket = false;
+            }
         }
     }]);
