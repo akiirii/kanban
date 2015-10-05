@@ -17,16 +17,19 @@ angular
             $scope.createNewBoard = true;
         }
         $scope.close = function() {
-
             $scope.createNewBoard = false;
         }
 
-
         $scope.submit = function() {
 
-
-            console.log($scope.newboard);
-            //$scope.createNewBoard = false;
+            if ($scope.newboard.$valid) {
+                console.log('correct');
+                $scope.createNewBoard = false;
+            }
+        }
+        $scope.validateInputs = function(fieldName) {
+            return $scope.newboard.boardName.$invalid && (!$scope.newboard.boardName.$pristine ||
+                $scope.newboard.$submitted)
         }
 
     }]);

@@ -30,13 +30,13 @@
 
 </div>
 
-<div ng-if="createNewBoard", class="modalDialog">
+<div ng-show="createNewBoard", class="modalDialog">
     <div class="container">
         <div class="close" title="Close" ng-click="close()">X</div>
         <h2> New Board </h2>
         <form name="newboard" ng-submit="submit()" novalidate>
             <fieldset>
-                <div class="group">
+                <div class="group" ng-class="{ 'has-error': validateInputs() }">
                     <label>*Name:</label>
                     <input name="boardName" type="text" ng-model="board.name" required>
                 </div>

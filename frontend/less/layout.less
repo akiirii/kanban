@@ -121,9 +121,6 @@ button {
         background-color: @alert-hover-color;
 
     }
-
-
-
 }
 
 .bold {
@@ -148,75 +145,11 @@ button {
 
  }
 
- .modalDialog {
-     position: fixed;
-     left: 0;
-     top: 0;
-     right: 0;
-     bottom: 0;
-     z-index: 99999;
-     background-color: rgba(229, 229, 229, 0.5);;
-
-
-     .container {
-         position: relative;
-         box-sizing: border-box;
-         margin: @big-spacing + @header-height auto;
-         padding: @big-spacing;
-         color: @dark-color;
-         box-shadow: 0 0 3px @main-color;
-         background-color: @very-light-color;
-         border-bottom: 1px solid @main-color;
-         width: 400px;
-
-         h2 {
-             margin:  @medium-spacing 0;
-         }
-         .group {
-             padding: @small-spacing;
-             .display-flex();
-
-             input, textarea {
-                 flex: 1;
-             }
-
-             label {
-                 width: 100px;
-             }
-         }
-         .buttons {
-             .display-flex();
-             justify-content: flex-end;
-
-             button {
-                  margin-right: @small-spacing;
-             }
-         }
-
-
-     }
-     .close {
-        cursor: pointer;
-        color: @main-color;
-        line-height: 25px;
-        position: absolute;
-        right: 0;
-        text-align: center;
-        top: 0;
-        width: 24px;
-    }
- }
-
  @media (max-width: 359px){
      header {
          justify-content: flex-end;
          h1 {
              display: none;
-         }
-     }
-     .modalDialog {
-         .container {
-              width: 100%;
          }
      }
  }
