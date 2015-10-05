@@ -20,7 +20,7 @@
 
 </ul>
 
-<button class="big basic"> &#43 add board</button>
+<button class="big basic" ng-click="addBoard()"> &#43 add board</button>
 
 </div>
 
@@ -29,3 +29,27 @@
 </div>
 
 </div>
+
+<div ng-if="createNewBoard", class="modalDialog">
+    <div class="container">
+        <div class="close" title="Close" ng-click="close()">X</div>
+        <h2> New Board </h2>
+        <form name="newboard" ng-submit="submit()" novalidate>
+            <fieldset>
+                <div class="group">
+                    <label>*Name:</label>
+                    <input name="boardName" type="text" ng-model="board.name" required>
+                </div>
+                <div  class="group">
+                    <label>Description:</label>
+                    <textarea name="boardDescription" ng-model="board.description" ></textarea>
+                </div>
+                <div class="buttons">
+                    <button ng-click=close()>cancel</button>
+                    <button type="submit" class="basic">save</button>
+                </div>
+            </fieldset>
+        </form>
+
+    </div>
+<div>

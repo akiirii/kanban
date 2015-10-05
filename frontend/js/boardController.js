@@ -2,8 +2,9 @@ angular
     .module('board', [])
     .controller('boardController', ['$scope', '$routeParams', 'boardService', function($scope, $routeParams,
         boardService) {
-
+        $scope.updateBoard = false;
         $scope.loading = true;
+
         boardService.getBoard($routeParams.id).then(function(response) {
             $scope.board = {
                 name: response.name,
@@ -23,8 +24,14 @@ angular
 
 
         $scope.$watch('board', function(board) {
-            console.log('cange', board);
-        });
+            if ($scope.updateBoard) {
+                boardService.updateBoard(board).then(function(response) {
+                    console.log('????')
+                    $scope.updateBoard = false;
+                });
+            }
+
+        }, true);
 
         $scope.addTicket = function() {
             $scope.newTicket = true;

@@ -6,12 +6,12 @@
     </div>
 
     <div>
-        <div board-column name="Requested" header="primary" status="requested" tickets="board.requested"></div>
-        <div board-column name="In Progress" header="progress" status="inprogress" tickets="board.inprogress"></div>
+        <div board-column name="Requested" update-board="updateBoard" header="primary" status="requested" tickets="board.requested"></div>
+        <div board-column name="In Progress" update-board="updateBoard" header="progress" status="inprogress" tickets="board.inprogress"></div>
     </div>
     <div>
-        <div board-column name="Testing" header="progress" status="testing" tickets="board.testing"></div>
-        <div board-column name="Done" header="secondary" status="done" tickets="board.done"></div>
+        <div board-column name="Testing" update-board="updateBoard" header="progress" status="testing" tickets="board.testing"></div>
+        <div board-column name="Done" update-board="updateBoard" header="secondary" status="done" tickets="board.done"></div>
     </div>
 </div>
 

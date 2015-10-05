@@ -8,7 +8,8 @@ angular
                 name: '@name',
                 status: '@status',
                 header: '@header',
-                tickets: '=tickets'
+                tickets: '=tickets',
+                updateBoard: '=updateBoard'
 
             },
             templateUrl: '/html/boardColumn.html',
@@ -18,6 +19,7 @@ angular
                 }
 
                 $scope.changeStatus = function(item, status) {
+                    $scope.updateBoard = true;
                     item.status = status;
                 }
             }]

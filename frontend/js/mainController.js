@@ -9,5 +9,24 @@ angular
             $scope.loading = false;
         })
 
+        $scope.addBoard = function() {
+            $scope.board = {
+                name: '',
+                description: ''
+            };
+            $scope.createNewBoard = true;
+        }
+        $scope.close = function() {
+
+            $scope.createNewBoard = false;
+        }
+
+
+        $scope.submit = function() {
+
+
+            console.log($scope.newboard);
+            //$scope.createNewBoard = false;
+        }
 
     }]);

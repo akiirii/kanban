@@ -61,6 +61,19 @@ app.get('/api/board/:id', function(req, res) {
     });
 });
 
+app.post('/api/newBoard', function(req, res) {
+    res.send({
+
+    });
+});
+
+app.post('/api/updateBoard', function(req, res) {
+    console.log('aaaaaaaaaaaaaaaaaaaaa')
+    res.send({
+        sucess: true
+    });
+});
+
 
 console.log(__dirname + '../frontend/html');
 
