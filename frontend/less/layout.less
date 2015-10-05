@@ -40,10 +40,11 @@ header {
     left: 0;
     right: 0;
     box-shadow: 0 2px 2px @main-color;
-    display: flex;
+    .display-flex();
+    white-space: nowrap;
 
     >div {
-        display: flex;
+        .display-flex();
     }
     h1 {
         color: @main-color;
@@ -173,7 +174,7 @@ button {
          }
          .group {
              padding: @small-spacing;
-             display: flex;
+             .display-flex();
 
              input, textarea {
                  flex: 1;
@@ -184,7 +185,7 @@ button {
              }
          }
          .buttons {
-             display: flex;
+             .display-flex();
              justify-content: flex-end;
 
              button {
@@ -207,7 +208,12 @@ button {
  }
 
  @media (max-width: 359px){
-     
+     header {
+         justify-content: flex-end;
+         h1 {
+             display: none;
+         }
+     }
      .modalDialog {
          .container {
               width: 100%;
