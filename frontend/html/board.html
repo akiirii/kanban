@@ -2,7 +2,7 @@
 <div class="board" ng-if="!loading">
     <div class="boardMenu">
         <h2>{{board.name}}</h2>
-        <button class="basic"> &#43 add ticket</button>
+        <button class="basic" ng-click="addTicket()"> &#43 add ticket</button>
     </div>
 
     <div>
@@ -18,3 +18,23 @@
 <div ng-if="loading" class="loader">
     <img src="/img/loading.gif">
 </div>
+
+<div ng-if="newTicket", class="modalDialog">
+    <div class="container">
+        <div class="close" title="Close" ng-click="close()">X</div>
+        <h2> New Ticket </h2>
+        <div class="group">
+            <label for="newTicketName">Name</label>
+            <input id="newTicketName" type="text" ng-model="ticket.name"/>
+        </div>
+        <div  class="group">
+            <label for="newTicketDescription">Description</label>
+            <textarea id="newTicketDescription" ng-model="ticket.description" ></textarea>
+        </div>
+        <div class="buttons">
+            <button ng-click=close()>cancel</button>
+            <button class="basic" ng-click=save()>save</button>
+        </div>
+
+    </div>
+<div>

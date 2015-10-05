@@ -25,4 +25,11 @@ angular
         $scope.$watch('board', function(board) {
             console.log('cange', board);
         });
+
+        $scope.addTicket = function() {
+            $scope.newTicket = true;
+        }
+        $scope.close = function() {
+            $scope.newTicket = false;
+        }
     }]);

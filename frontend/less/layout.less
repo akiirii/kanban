@@ -76,13 +76,14 @@ main {
 
 button {
     display: block;
-    color: @very-light-color;
+    color: @dark-color;
     border-radius: 5px;
     padding: @small-spacing;
     border: none;
     font-weight: bold;
 
     &.requested {
+        color: @very-light-color;
         background-color: @primary-color;
 
     }
@@ -91,6 +92,7 @@ button {
 
     }
     &.done {
+        color: @very-light-color;
         background-color: @secondary-color;
 
     }
@@ -100,6 +102,7 @@ button {
 
     }
     &.inprogress {
+        color: @very-light-color;
         background-color: @progress-color;
 
     }
@@ -109,6 +112,7 @@ button {
     }
 
     &.basic {
+        color: @very-light-color;
         background-color: @alert-color;
 
     }
@@ -135,9 +139,78 @@ button {
 .content{
     padding: @small-spacing;
 }
- .loader {
+
+.loader {
      margin: @big-spacing auto;
      padding: @big-spacing;
      width: 128px
 
+ }
+
+ .modalDialog {
+     position: fixed;
+     left: 0;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     z-index: 99999;
+     background-color: rgba(229, 229, 229, 0.5);;
+
+
+     .container {
+         position: relative;
+         box-sizing: border-box;
+         margin: @big-spacing + @header-height auto;
+         padding: @big-spacing;
+         color: @dark-color;
+         box-shadow: 0 0 3px @main-color;
+         background-color: @very-light-color;
+         border-bottom: 1px solid @main-color;
+         width: 400px;
+
+         h2 {
+             margin-bottom: @big-spacing
+         }
+         .group {
+             padding: @small-spacing;
+             display: flex;
+
+             input, textarea {
+                 flex: 1;
+             }
+
+             label {
+                 width: 100px;
+             }
+         }
+         .buttons {
+             display: flex;
+             justify-content: flex-end;
+
+             button {
+                  margin-right: @small-spacing;
+             }
+         }
+
+
+     }
+     .close {
+        cursor: pointer;
+        color: @main-color;
+        line-height: 25px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+        width: 24px;
+    }
+ }
+
+ @media (max-width: 359px){
+     
+     .modalDialog {
+         .container {
+              width: 100%;
+         }
+     }
  }
