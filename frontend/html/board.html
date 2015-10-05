@@ -1,5 +1,5 @@
 
-<div class="board">
+<div class="board" ng-if="!loading">
     <div class="boardMenu">
         <h2>{{board.name}}</h2>
         <button class="basic"> &#43 add ticket</button>
@@ -13,4 +13,8 @@
         <div board-column name="Testing" header="progress" status="testing" tickets="board.testing"></div>
         <div board-column name="Done" header="secondary" status="done" tickets="board.done"></div>
     </div>
+</div>
+
+<div ng-if="loading" class="loader">
+    <img src="/img/loading.gif">
 </div>

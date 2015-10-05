@@ -5,7 +5,7 @@
 
 
 
-<div class="boards">
+<div class="boards" ng-if="!loading">
 <ul>
 
     <li  ng-repeat="board in boards">
@@ -24,8 +24,8 @@
 
 </div>
 
-<div>
-
+<div ng-if="loading" class="loader">
+    <img src="/img/loading.gif">
 </div>
 
 </div>
