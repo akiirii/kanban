@@ -7,27 +7,28 @@ angular
                     return response.data.boards;
                 });
             },
-
-            getBoard: function(id) {
-                return $http.get('/api/board/' + id).then(function(response) {
-                    return response.data;
-                })
-            },
-
-            updateBoard: function(board) {
-                console.log('sadads')
-                return $http.post('/api/updateBoard/', board).then(function(response) {
-                    return response.data;
-                })
-            },
-
             createBoard: function(board) {
-                return $http.post('/api/createBoard/', board).then(function(response) {
+                return $http.post('/api/boards/', board).then(function(response) {
                     return response.data;
                 })
+            },
+            getBoard: function(boardId) {
+                return $http.get('/api/boards/' + boardId).then(function(response) {
+                    return response.data;
+                })
+            },
+            createTicket: function(boardId, ticket) {
+                console.log('createTicket')
+                return $http.post('/api/boards/' + boardId + '/ tickets ', ticket).then(function(response) {
+                    return response.data;
+                })
+            },
+            updateTicketStatus: function(boardId, ticket) {
+                console.log('updateTicketStatus')
+                return $http.post('/api/boards/' + boardId + '/ tickets ' + ticket.id, ticket).then(
+                    function(response) {
+                        return response.data;
+                    })
             }
-
-
         }
-
     }]);

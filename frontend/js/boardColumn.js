@@ -8,19 +8,20 @@ angular
                 name: '@name',
                 status: '@status',
                 header: '@header',
-                tickets: '=tickets',
-                updateBoard: '=updateBoard'
+                tickets: '=tickets'
 
             },
             templateUrl: '/html/boardColumn.html',
-            controller: ['$scope', function($scope) {
+            controller: ['$scope', '$routeParams', 'boardService', function($scope, $routeParams, boardService) {
                 $scope.removeElement = function(ticket, index) {
                     $scope.tickets.splice(index, 1)
-                }
+                };
 
                 $scope.changeStatus = function(item, status) {
-                    $scope.updateBoard = true;
                     item.status = status;
+                    boardService.updateTicketStatus($routeParams.id, item).then(function(response) {
+                        console.log('aaaaa')
+                    });
                 }
             }]
         }

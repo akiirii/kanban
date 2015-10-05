@@ -27,6 +27,9 @@ angular
             if ($scope.newboard.$valid) {
                 console.log('correct');
                 $scope.createNewBoard = false;
+                boardService.createBoard($scope.board).then(function(response) {
+                    console.log('aaaaa')
+                });
             }
         }
         $scope.validate = function() {

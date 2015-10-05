@@ -2,7 +2,7 @@ angular
     .module('board', [])
     .controller('boardController', ['$scope', '$routeParams', 'boardService', function($scope, $routeParams,
         boardService) {
-        $scope.updateBoard = false;
+
         $scope.loading = true;
         $scope.createNewicket = false;
 
@@ -23,18 +23,6 @@ angular
             $scope.loading = false;
         });
 
-
-        $scope.$watch('board', function(board) {
-            if ($scope.updateBoard) {
-                boardService.updateBoard(board).then(function(response) {
-                    console.log('????')
-                    $scope.updateBoard = false;
-                });
-            }
-
-        }, true);
-
-
         $scope.validate = function(fieldName) {
             return $scope.newticket[fieldName].$invalid && ($scope.newticket[fieldName].$dirty ||
                 $scope.submited)
@@ -45,21 +33,23 @@ angular
             $scope.ticket = {
                 name: '',
                 description: '',
-                stetus: 'requested'
+                status: 'requested'
             };
             $scope.createNewTicket = true;
 
         }
         $scope.close = function() {
             $scope.submited = false;
-
             $scope.createNewTicket = false;
         }
         $scope.submit = function() {
             $scope.submited = true;
             if ($scope.newticket.$valid) {
-                $scope.board.tickets.push($scope.ticket);
+                $scope.board['requested'].push($scope.ticket);
                 $scope.createNewTicket = false;
+                boardService.createTicket($routeParams.id, $scope.ticket).then(function() {
+                    console.log('aaaaa')
+                })
             }
         }
     }]);
