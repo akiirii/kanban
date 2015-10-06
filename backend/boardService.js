@@ -1,77 +1,52 @@
-require('./db')
-
+var db = require('./db');
+var _ = require('underscore');
 
 module.exports = {
     getBoards: function(req, res) {
+        var collection = db.collection('boards');
 
-
-        return {
-            boards: [{
-                id: 122,
-                name: 'board1',
-                description: 'asasas',
-                count: 12
-            }, {
-                id: 12121,
-                name: 'board  sbbsd sadgshdgs sdasdadd',
-                description: '',
-                count: 1
-            }]
-        }
-
-
-
+        res.send({
+            boards: _(collection.where({
+                owner: "abc"
+            }).items).each(function(b) {
+                b.id = b.cid;
+            })
+        });
     },
     getBoard: function(req, res) {
+        var boardCollection = db.collection('boards');
+        var ticketCollection = db.collection('ticket');
 
+        var id = parseInt(req.params.boardId);
+        var board = boardCollection.get(id);
 
-        return {
-            id: 122,
-            name: 'board1',
-            tickets: [{
-                id: 12,
-                name: 'nasfdfnsma',
-                status: 'requested',
-                description: 'asdadadasd '
-            }, {
-                id: 2,
-                name: 'dsfsd',
-                status: 'requested',
-                description: 'sdf dsdsf sdf sd'
-            }, {
-                id: 3,
-                name: 'as',
-                status: 'inprogress',
-                description: 'sdfsdf dsfsdf requested'
-            }, {
-                id: 4,
-                name: 'sad',
-                status: 'requested',
-                description: ''
-            }, {
-                id: 5,
-                name: 'asd',
-                status: 'testing',
-                description: 'asdasdd'
-            }, {
-                id: 6,
-                name: 'asd',
-                status: 'done'
-            }, {
-                id: 7,
-                name: 'sdfdfsdf',
-                status: 'testing'
-            }]
+        if (board) {
+
+            var tickets = _(ticketCollection.where({
+                boardId: id
+            }).items).each(function(t) {
+                t.id = t.cid;
+            })
+
+            res.send({
+                id: id,
+                name: board.name,
+                tickets: tickets
+            })
+        } else {
+            res.sendStatus(404);
         }
-
-
-
     },
     createBoard: function(req, res) {
+        var collection = db.collection('boards');
+        var board = req.body;
+        board.owner = 'abc';
 
-        return {
-            id: 1223
-        }
+        collection.insert(board);
+        collection.save();
+        res.send({
+            id: board.cid
+        });
 
     }
 }

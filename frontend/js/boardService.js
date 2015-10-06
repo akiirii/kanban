@@ -25,7 +25,7 @@ angular
             },
             updateTicketStatus: function(boardId, ticket) {
                 console.log('updateTicketStatus')
-                return $http.post('/api/boards/' + boardId + '/tickets/' + ticket.id, ticket).then(
+                return $http.put('/api/boards/' + boardId + '/tickets/' + ticket.id, ticket).then(
                     function(response) {
                         return response.data;
                     })

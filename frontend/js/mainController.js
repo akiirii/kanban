@@ -1,15 +1,18 @@
 angular
     .module('main', [])
-    .controller('mainController', ['$scope', 'boardService', function($scope, boardService) {
-
-        $scope.loading = true;
-
-        boardService.getBoards().then(function(response) {
-            $scope.boards = response;
-            $scope.loading = false;
-        })
+    .controller('mainController', ['$scope', '$location', 'boardService', function($scope, $location, boardService) {
+        $scope.error = false;
+        var getBoards = function() {
+            $scope.loading = true;
+            boardService.getBoards().then(function(response) {
+                $scope.boards = response;
+                $scope.loading = false;
+            })
+        };
+        getBoards();
 
         $scope.addBoard = function() {
+            $scope.error = false;
             $scope.submited = false;
             $scope.board = {
                 name: '',
@@ -25,10 +28,15 @@ angular
         $scope.submit = function() {
             $scope.submited = true;
             if ($scope.newboard.$valid) {
-                console.log('correct');
                 $scope.createNewBoard = false;
                 boardService.createBoard($scope.board).then(function(response) {
-                    console.log('aaaaa')
+                    if (response.id !== undefined) {
+                        $location.url('/board/' + response.id);
+                    } else {
+                        $scope.error = true;
+                        getBoards();
+                    }
+
                 });
             }
         }
