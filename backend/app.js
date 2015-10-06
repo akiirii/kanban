@@ -77,9 +77,6 @@ app.put('/api/boards/:boardId/tickets/:ticketId', function(req, res) {
     res.sendStatus(200);
 });
 
-
-console.log(__dirname + '../frontend/html');
-
 app.use('/js', express.static(__dirname + '/../tmp/js'));
 app.use('/css', express.static(__dirname + '/../tmp/css'));
 app.use('/static', express.static(__dirname + '/../bower_components'));

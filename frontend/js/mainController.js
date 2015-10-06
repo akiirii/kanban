@@ -33,8 +33,7 @@ angular
             }
         }
         $scope.validate = function() {
-            return $scope.newboard.boardName.$invalid && (!$scope.newboard.boardName.$pristine ||
-                $scope.submited)
+            return $scope.newboard.boardName.$invalid && $scope.submited
         }
 
     }]);

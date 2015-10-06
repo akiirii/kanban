@@ -24,8 +24,7 @@ angular
         });
 
         $scope.validate = function(fieldName) {
-            return $scope.newticket[fieldName].$invalid && ($scope.newticket[fieldName].$dirty ||
-                $scope.submited)
+            return $scope.newticket[fieldName].$invalid && $scope.submited
         }
 
         $scope.addTicket = function() {
@@ -47,6 +46,7 @@ angular
             if ($scope.newticket.$valid) {
                 $scope.board['requested'].push($scope.ticket);
                 $scope.createNewTicket = false;
+                $scope.submited = false;
                 boardService.createTicket($routeParams.id, $scope.ticket).then(function() {
                     console.log('aaaaa')
                 })
