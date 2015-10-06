@@ -18,13 +18,11 @@ angular
                 })
             },
             createTicket: function(boardId, ticket) {
-                console.log('createTicket')
                 return $http.post('/api/boards/' + boardId + '/tickets', ticket).then(function(response) {
                     return response.data;
                 })
             },
             updateTicketStatus: function(boardId, ticket) {
-                console.log('updateTicketStatus')
                 return $http.put('/api/boards/' + boardId + '/tickets/' + ticket.id, ticket).then(
                     function(response) {
                         return response.data;

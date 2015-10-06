@@ -42,7 +42,7 @@ module.exports = {
 
             res.sendStatus(200);
         } else {
-            res.sendStatus(409);
+            res.sendStatus(404);
         };
     }
 }

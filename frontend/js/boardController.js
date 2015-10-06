@@ -3,21 +3,22 @@ angular
     .controller('boardController', ['$scope', '$routeParams', 'boardService', function($scope, $routeParams,
         boardService) {
 
+        $scope.error = false;
         $scope.loading = true;
         $scope.createNewicket = false;
 
         boardService.getBoard($routeParams.id).then(function(response) {
             $scope.board = {
                 name: response.name,
-                id: response.id
+                id: response.id,
+                requested: [],
+                inprogress: [],
+                testing: [],
+                done: []
             }
 
             angular.forEach(response.tickets, function(ticket, key) {
-                if (!$scope.board[ticket.status]) {
-                    $scope.board[ticket.status] = [];
-                }
-
-                $scope.board[ticket.status].push(ticket)
+                $scope.board[ticket.status].push(ticket);
             }, true);
 
             $scope.loading = false;

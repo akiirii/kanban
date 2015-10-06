@@ -8,7 +8,8 @@ angular
                 name: '@name',
                 status: '@status',
                 header: '@header',
-                tickets: '=tickets'
+                tickets: '=tickets',
+                error: '=error',
 
             },
             templateUrl: '/html/boardColumn.html',
@@ -18,9 +19,10 @@ angular
                 };
 
                 $scope.changeStatus = function(item, status) {
+                    $scope.error = false;
                     item.status = status;
-                    boardService.updateTicketStatus($routeParams.id, item).then(function(response) {
-                        console.log('aaaaa')
+                    boardService.updateTicketStatus($routeParams.id, item).then(function() {}, function() {
+                        $scope.error = true;
                     });
                 }
             }]
