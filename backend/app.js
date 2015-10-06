@@ -1,80 +1,32 @@
 var express = require('express');
-var morgan = require('morgan')
+var morgan = require('morgan');
+
+var boardService = require('./boardService');
+
+var ticketService = require('./ticketService');
 
 var app = express();
 app.use(morgan('combined'))
 
+
 app.get('/api/boards', function(req, res) {
-    res.send({
-        boards: [{
-            id: 122,
-            name: 'board1',
-            description: 'asasas',
-            count: 12
-        }, {
-            id: 12121,
-            name: 'board  sbbsd sadgshdgs sdasdadd',
-            description: '',
-            count: 1
-        }]
-    });
+    res.send(boardService.getBoards(req, res));
 });
 
 app.get('/api/boards/:boarsdId', function(req, res) {
-    res.send({
-        id: 122,
-        name: 'board1',
-        tickets: [{
-            id: 12,
-            name: 'nasfdfnsma',
-            status: 'requested',
-            description: 'asdadadasd '
-        }, {
-            id: 2,
-            name: 'dsfsd',
-            status: 'requested',
-            description: 'sdf dsdsf sdf sd'
-        }, {
-            id: 3,
-            name: 'as',
-            status: 'inprogress',
-            description: 'sdfsdf dsfsdf requested'
-        }, {
-            id: 4,
-            name: 'sad',
-            status: 'requested',
-            description: ''
-        }, {
-            id: 5,
-            name: 'asd',
-            status: 'testing',
-            description: 'asdasdd'
-        }, {
-            id: 6,
-            name: 'asd',
-            status: 'done'
-        }, {
-            id: 7,
-            name: 'sdfdfsdf',
-            status: 'testing'
-        }]
-    });
+    res.send(boardService.getBoard(req, res));
 });
 
 app.post('/api/boards', function(req, res) {
-    res.send({
-        id: 1223
-    });
+    res.send(boardService.createBoard(req, res));
 });
 
 app.post('/api/boards/:boarsdId/tickets', function(req, res) {
-    res.send({
-        id: 1223
-    });
+    res.send(ticketService.createTicket(req, res));
 });
 
 app.put('/api/boards/:boardId/tickets/:ticketId', function(req, res) {
-    res.sendStatus(200);
+    res.sendStatus(ticketService.updateTicket(req, res));
 });
 
 app.use('/js', express.static(__dirname + '/../tmp/js'));
