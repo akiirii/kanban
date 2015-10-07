@@ -1,32 +1,30 @@
 <div class="home">
+    <h1> Kanban boards </h1>
+    <div class="error alert-box" ng-if="error">
+        <div class="title">Error</div>
+        Error when creating board
+    </div>
 
-<h1> Kanban boards </h1>
-<div>  </div>
+    <div class="boards" ng-if="!loading">
+    <ul>
+        <li  ng-repeat="board in boards">
 
+            <a ng-href="#/board/{{board.id}}" title="{{board.name}} {{board.description}}">
+                <div class="name"> {{board.name}} </div>
+                <div   class="light">{{board.description}}</div>
 
+            </a>
+        </li>
 
-<div class="boards" ng-if="!loading">
-<ul>
+    </ul>
 
-    <li  ng-repeat="board in boards">
+    <button class="big basic" ng-click="addBoard()"> &#43 add board</button>
 
-        <a ng-href="#/board/{{board.id}}" title="{{board.name}} {{board.description}}">
-            <div class="name"> {{board.name}} </div>
-            <div>Tickets: [{{board.count}}]</span></div>
-            <div   class="light">{{board.description}}</div>
+    </div>
 
-        </a>
-    </li>
-
-</ul>
-
-<button class="big basic" ng-click="addBoard()"> &#43 add board</button>
-
-</div>
-
-<div ng-if="loading" class="loader">
-    <img src="/img/loading.gif">
-</div>
+    <div ng-if="loading" class="loader">
+        <img src="/img/loading.gif">
+    </div>
 
 </div>
 

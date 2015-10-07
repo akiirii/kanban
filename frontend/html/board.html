@@ -2,16 +2,19 @@
 <div class="board" ng-if="!loading">
     <div class="boardMenu">
         <h2>{{board.name}}</h2>
+        <div class="error alert-box" ng-show="error">
+            Error when updating ticket
+        </div>
         <button class="basic" ng-click="addTicket()"> &#43 add ticket</button>
     </div>
 
     <div>
-        <div board-column name="Requested" header="primary" status="requested" tickets="board.requested"></div>
-        <div board-column name="In Progress" header="progress" status="inprogress" tickets="board.inprogress"></div>
+        <div board-column name="Requested" error="error" header="primary" status="requested" tickets="board.requested"></div>
+        <div board-column name="In Progress" error="error" header="progress" status="inprogress" tickets="board.inprogress"></div>
     </div>
     <div>
-        <div board-column name="Testing" header="progress" status="testing" tickets="board.testing"></div>
-        <div board-column name="Done" header="secondary" status="done" tickets="board.done"></div>
+        <div board-column name="Testing" error="error" header="progress" status="testing" tickets="board.testing"></div>
+        <div board-column name="Done" error="error" header="secondary" status="done" tickets="board.done"></div>
     </div>
 </div>
 

@@ -1,38 +1,26 @@
 <!doctype html>
 <html lang="en" ng-app="kanban">
-<head>
-    <meta charset="utf-8">
-    <script src="/static/angular/angular.js"></script>
-    <script src="/static/angular-route/angular-route.js"></script>
-    <script src="/static/angular-drag-and-drop-lists/angular-drag-and-drop-lists.min.js"></script>
+    <head>
+        <meta charset="utf-8">
+        <script src="/static/angular/angular.js"></script>
+        <script src="/static/angular-route/angular-route.js"></script>
+        <script src="/static/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js"></script>
+        <script src="/js/app.concat.js"></script>
 
-    <script src="/js/app.concat.js"></script>
-
-    <link rel="stylesheet" href="/css/main.css">
-
-</head>
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
 
 
-<header>
-    <h1> Kanban board</h1>
-    <div>
+    <header>
+        <h1> Kanban board</h1>
+        <div>
+            <a href="#/"> my boards</a>
+            <div class="user"> Akiirii </div>
+        <div>
+    </header>
 
-        <a href="#/"> my boards</a>
-        <div class="user"> Akiirii </div>
-    <div>
-</header>
+    <body>
 
-<body>
-
-<main ng-view>
-</main>
-</body>
-
-
-<footer>
-
-
-</footer>
-
-
+    <main ng-view></main>
+    </body>
 </html>
