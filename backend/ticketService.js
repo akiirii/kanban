@@ -31,8 +31,6 @@ module.exports = {
         var id = parseInt(req.params.ticketId);
         var ticket = ticketCollection.get(id);
 
-        console.log(req.params)
-
         if (ticket) {
             ticket.name = req.body.name;
             ticket.status = req.body.status;

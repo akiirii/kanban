@@ -6,9 +6,7 @@ module.exports = {
         var collection = db.collection('boards');
 
         res.send({
-            boards: _(collection.where({
-                owner: "abc"
-            }).items).each(function(b) {
+            boards: _(collection.items).each(function(b) {
                 b.id = b.cid;
             })
         });
@@ -26,13 +24,13 @@ module.exports = {
                 boardId: id
             }).items).each(function(t) {
                 t.id = t.cid;
-            })
+            });
 
             res.send({
                 id: id,
                 name: board.name,
                 tickets: tickets
-            })
+            });
         } else {
             res.sendStatus(404);
         }
@@ -40,7 +38,6 @@ module.exports = {
     createBoard: function(req, res) {
         var collection = db.collection('boards');
         var board = req.body;
-        board.owner = 'abc';
 
         collection.insert(board);
         collection.save();
